@@ -1,0 +1,53 @@
+// date picker
+
+.react-date-picker{
+    width: 100%;
+    .react-date-picker__wrapper{
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+}
+
+//snackabr
+
+    #client-snackbar{
+        display: inline-flex;
+        font-size: 14px;
+        font-family: monospace;
+        align-items: center;
+    }
+//date filter
+
+.date-filter.filter {
+    display: flex;
+    .date-filter-comparator{
+        width: 37%;
+    }
+}
+// date form control
+.has-date-error{
+    .react-date-picker__wrapper
+    {
+        border-color: #a94442;
+    }
+}
+// dropzone file pound 
+.has-file-error{
+    .filepond--drop-label{
+        border: 1px dashed #a94442;
+        color: #a94442;
+    }
+}

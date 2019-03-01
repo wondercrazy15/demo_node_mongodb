@@ -1,0 +1,183 @@
+#header_page .header_title {
+  font-family: initial;
+  font-variant: common-ligatures;
+  font-weight: 500;
+  font-size: xx-large;
+}
+#header_page .header_menu {
+  font-size: large;
+  font-family: initial;
+  font-variant: common-ligatures;
+  font-weight: 500;
+}
+#header_page .header_menu .header-user-profile {
+  max-width: 100%;
+  height: 55px;
+}
+#header_page .active_header_menu {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 5px solid #ffffff;
+  color: #ffffff;
+}
+#header_page .nav li a {
+  font-size: 18px;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.m-page-footer {
+  margin-bottom: 65px;
+}
+
+.filepond--hopper.filepond--root {
+  font-size: large;
+}
+
+#footer {
+  clear: both;
+  position: relative;
+  height: 40px;
+  margin-top: 0px;
+}
+#footer .navbar-default {
+  background: #222222;
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 0;
+  border: 1px solid transparent;
+}
+#footer .navbar-default .footer_headline {
+  text-align: center;
+  font-size: initial;
+  font-family: cursive;
+  font-variant: common-ligatures;
+  color: #9d9d9d;
+}
+#footer .navbar-default .footer_headline:hover {
+  color: #fff;
+}
+
+.react-bootstrap-table .boostrap-header-class {
+  background: #e4a68f;
+}
+.react-bootstrap-table .img-rounded {
+  border-radius: 6px;
+  max-width: 100%;
+  max-height: 80px;
+}
+.react-bootstrap-table .edit-icon-class {
+  font-size: x-large;
+  color: #148e14db;
+}
+.react-bootstrap-table .delete-icon-class {
+  font-size: x-large;
+  color: #f25021;
+}
+.react-bootstrap-table .table {
+  table-layout: auto;
+}
+.react-bootstrap-table .table tr th {
+  font-family: monospace;
+}
+
+.react-bootstrap-table-pagination-total {
+  font-family: monospace;
+  font-style: oblique;
+  font-weight: 700;
+}
+
+.boostrap-home-title {
+  border-radius: 0.25em;
+  text-align: center;
+  color: purple;
+  border: 1px solid purple;
+  padding: 0.5em;
+  font-family: fantasy;
+}
+.boostrap-home-title .userName-title {
+  text-decoration: underline;
+  quotes: initial;
+  text-transform: capitalize;
+}
+
+#profile-page .glyphicon {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+#profile-page small {
+  display: block;
+  line-height: 1.428571429;
+  color: #999;
+}
+#profile-page .profile-image {
+  max-width: 100%;
+  display: flex;
+  margin: auto;
+}
+#profile-page .font-heading-style {
+  font-family: monospace;
+  font-style: italic;
+  font-size: xx-large;
+  font-weight: normal;
+}
+#profile-page .profile-content {
+  font-family: monospace;
+  font-weight: bold;
+  text-align: center;
+  border: double #3e4b55;
+  border-left: 0px;
+  border-right: 0;
+}
+
+.react-date-picker {
+  width: 100%;
+}
+.react-date-picker .react-date-picker__wrapper {
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+#client-snackbar {
+  display: inline-flex;
+  font-size: 14px;
+  font-family: monospace;
+  align-items: center;
+}
+
+.date-filter.filter {
+  display: flex;
+}
+.date-filter.filter .date-filter-comparator {
+  width: 37%;
+}
+
+.has-date-error .react-date-picker__wrapper {
+  border-color: #a94442;
+}
+
+.has-file-error .filepond--drop-label {
+  border: 1px dashed #a94442;
+  color: #a94442;
+}
+
+/*# sourceMappingURL=main.css.map */

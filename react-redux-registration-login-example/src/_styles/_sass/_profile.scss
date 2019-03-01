@@ -1,0 +1,33 @@
+#profile-page{
+
+    .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+
+    small {
+    display: block;
+    line-height: 1.428571429;
+    color: #999;
+    }
+    
+    .profile-image{
+        max-width: 100%;
+        display: flex;
+        margin: auto;
+    }
+ 
+    .font-heading-style{
+        font-family: monospace;
+        font-style: italic;
+        font-size: xx-large;
+        font-weight: normal;
+    }
+    .profile-content {
+        font-family: monospace;
+        font-weight: bold;
+        text-align: center;
+        border: double #3e4b55;
+        border-left: 0px;
+        border-right: 0;
+    }
+
+  
+}
