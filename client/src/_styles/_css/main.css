@@ -14,6 +14,48 @@
   max-width: 100%;
   height: 55px;
 }
+#header_page .header_menu .my-heder-dropdown-display {
+  background: white;
+  position: absolute;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 35px 0px black;
+  z-index: 1;
+  width: max-content;
+  display: none;
+}
+#header_page .header_menu .my-heder-dropdown-display .dropdown-divider {
+  border: 1px solid #3caf9a;
+  margin: 5px 0;
+}
+#header_page .header_menu .my-heder-dropdown-display .glyphicon {
+  color: #999999;
+  padding-right: 5px;
+}
+#header_page .header_menu .my-heder-dropdown-display a {
+  color: black;
+}
+#header_page .header_menu .my-heder-dropdown-display .Active-dropdown-menu {
+  color: #3caf9a;
+}
+#header_page .header_menu .my-heder-dropdown-display .Active-dropdown-menu .glyphicon {
+  color: #3caf9a;
+}
+#header_page .header_menu .dropdown-bar:hover .my-heder-dropdown-display {
+  display: block;
+  left: -150px;
+  cursor: pointer;
+}
+#header_page .header_menu .dropdown-bar:hover .my-heder-dropdown-display .upper-arrow {
+  position: absolute;
+  right: 0;
+  top: -5px;
+  border-left: 20px solid transparent;
+  border-right: 24px solid transparent;
+  border-bottom: 30px solid #ffffff;
+  top: -28px;
+}
 #header_page .active_header_menu {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -38,6 +80,16 @@
 
 .filepond--hopper.filepond--root {
   font-size: large;
+}
+
+.m-l-r-10 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.m-t-b-10 {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #footer {
@@ -96,8 +148,8 @@
 .boostrap-home-title {
   border-radius: 0.25em;
   text-align: center;
-  color: purple;
-  border: 1px solid purple;
+  color: #286978;
+  border: 1px solid #2b879d;
   padding: 0.5em;
   font-family: fantasy;
 }
@@ -178,6 +230,20 @@
 .has-file-error .filepond--drop-label {
   border: 1px dashed #a94442;
   color: #a94442;
+}
+
+.modal-backdrop.show {
+  transition: opacity 0.15s linear !important;
+}
+
+.fade.modal.show {
+  opacity: 1 !important;
+}
+.fade.modal.show .modal-dialog {
+  margin: 100px auto;
+}
+.fade.modal.show .modal-header .close {
+  margin-top: -18px;
 }
 
 /*# sourceMappingURL=main.css.map */

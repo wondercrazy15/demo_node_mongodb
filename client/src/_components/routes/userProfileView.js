@@ -212,7 +212,7 @@ class UserProfileView extends React.Component {
                                     <p>
                                         <i className="glyphicon glyphicon-envelope"></i>{email}
                                         <br />
-                                        <i className="glyphicon glyphicon-globe"></i><a href="http://www.natrixsoftware.com/">www.natrixsoftware.com</a>
+                                        <i className="glyphicon glyphicon-globe"></i><a href="https://www.tutorialspoint.com/reactjs/">www.tutorialspoint.com/reactjs/</a>
                                         <br />
                                         <i className="glyphicon glyphicon-gift"></i>{bod}</p>
                                 </div>

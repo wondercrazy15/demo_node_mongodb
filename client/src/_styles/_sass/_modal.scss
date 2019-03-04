@@ -1,0 +1,15 @@
+.modal-backdrop.show{
+    transition: opacity .15s linear !important;
+}
+.fade.modal.show{
+    opacity: 1 !important;
+    .modal-dialog{
+        margin: 100px auto;
+    }
+    .modal-header
+    {
+        .close {
+            margin-top: -18px;
+        }
+    } 
+}

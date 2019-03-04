@@ -189,7 +189,7 @@ class HomePage extends React.Component {
               Showing { from } to { to } of { size } Results
             </span>
           );
-        const CaptionElement = () => <h3 className="boostrap-home-title"> Hi... <p className="userName-title"> {user.firstName + ' ' +user.lastName }</p> Welcome To Natrix Software</h3>;
+        const CaptionElement = () => <h3 className="boostrap-home-title"> Hi... <p className="userName-title"> {user.firstName + ' ' +user.lastName }</p> Welcome To React Project</h3>;
         // const rowStyle = { backgroundColor: '#c8e6c9' };
 
         return (

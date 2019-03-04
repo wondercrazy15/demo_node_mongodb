@@ -16,7 +16,7 @@ class Footer extends React.Component {
             <div id="footer">
                 <nav className="navbar navbar-default navbar-bottom" role="navigation">
                     <div className="container p-10">
-                        <p className="footer_headline ">Powered by natrix software private limited.</p>
+                        <p className="footer_headline ">Powered By React Development Team.</p>
                     </div>
                 </nav>
             </div>
