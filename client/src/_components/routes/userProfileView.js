@@ -15,7 +15,7 @@ import CustomizedSnackbars from './../pages/CustomizedSnackbars';
 import moment from 'moment';
 import DatePicker from 'react-date-picker';
 const server = 'http://localhost:4000/';
-
+import Fade from 'react-reveal/Fade';
 import {
     Magnifier,
     GlassMagnifier,
@@ -227,27 +227,27 @@ class UserProfileView extends React.Component {
                                     <div className={'form-group' + (submitted && !user.firstName ? ' has-error' : '')}>
                                         <label htmlFor="firstName">First Name</label>
                                         <input type="text" className="form-control" name="firstName" value={user.firstName} onChange={this.handleChange} />
-                                        {submitted && !user.firstName &&
+                                        <Fade bottom collapse when={submitted && !user.firstName}>
                                             <div className="help-block">First Name is required</div>
-                                        }
+                                        </Fade>
                                     </div>
                                 </Col>
                                 <Col md={6}>
                                     <div className={'form-group' + (submitted && !user.lastName ? ' has-error' : '')}>
                                         <label htmlFor="lastName">Last Name</label>
                                         <input type="text" className="form-control" name="lastName" value={user.lastName} onChange={this.handleChange} />
-                                        {submitted && !user.lastName &&
+                                        <Fade bottom collapse when={submitted && !user.lastName}>
                                             <div className="help-block">Last Name is required</div>
-                                        }
+                                        </Fade>
                                     </div>
                                 </Col>
                                 <Col md={6}>
                                     <div className={'form-group' + (submitted && !user.username ? ' has-error' : '')}>
                                         <label htmlFor="username">Username</label>
                                         <input type="text" className="form-control" name="username" value={user.username} onChange={this.handleChange} disabled={true} />
-                                        {submitted && !user.username &&
+                                        <Fade bottom collapse when={submitted && !user.username}>
                                             <div className="help-block">Username is required</div>
-                                        }
+                                        </Fade>
                                     </div>
                                 </Col>
                                 <Col md={6}>
@@ -258,9 +258,9 @@ class UserProfileView extends React.Component {
                                             value={user.bod ? new Date(user.bod) : ''}
 
                                         />
-                                        {submitted && !user.bod &&
+                                        <Fade bottom collapse when={submitted && !user.bod}>
                                             <div className="help-block">Birthdate is required</div>
-                                        }
+                                        </Fade>
                                     </div>
                                 </Col>
                                 <Col md={6}>
@@ -270,9 +270,9 @@ class UserProfileView extends React.Component {
                                             value={user.country}
                                             className="form-control"
                                             onChange={(val) => this.selectCountry(val)} />
-                                        {submitted && !user.country &&
+                                        <Fade bottom collapse when={submitted && !user.country}>
                                             <div className="help-block">Country is required</div>
-                                        }
+                                        </Fade>
                                     </div>
                                 </Col>
                                 <Col md={6}>
@@ -283,9 +283,9 @@ class UserProfileView extends React.Component {
                                             value={user.region}
                                             className="form-control"
                                             onChange={(val) => this.selectRegion(val)} />
-                                        {submitted && !user.region &&
+                                        <Fade bottom collapse when={submitted && !user.region}>
                                             <div className="help-block">Region is required</div>
-                                        }
+                                        </Fade>
                                     </div>
                                 </Col>
                                 <Col md={12}>

@@ -6,17 +6,18 @@ import { userActions } from '../_actions';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-import filterFactory, { textFilter , dateFilter } from 'react-bootstrap-table2-filter';
+import filterFactory, { textFilter, dateFilter } from 'react-bootstrap-table2-filter';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-import {UserProfileView}   from './../_components/routes/userProfileView';
+import { UserProfileView } from './../_components/routes/userProfileView';
 import CustomizedSnackbars from './../_components/pages/CustomizedSnackbars';
 import { has } from 'lodash';
+import Fade from 'react-reveal/Fade';
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            ActiveHeader:'home',
+            ActiveHeader: 'home',
             isSnackbarOpen: false,
             snackbarMsg: '',
             snackbarType: ''
@@ -26,11 +27,11 @@ class HomePage extends React.Component {
     componentDidMount() {
         this.props.dispatch(userActions.getAll());
     }
-   
+
     handleDeleteUser = (id) => {
         return (e) => {
-           this.deleteUser(id);
-        }   
+            this.deleteUser(id);
+        }
     }
     handleSnackbarClose = () => {
         this.setState({
@@ -38,37 +39,40 @@ class HomePage extends React.Component {
         })
     }
     deleteUser = (id) => {
-        const {user} = this.props;
+        const { user } = this.props;
         const loginId = user._id;
-        if(id == loginId){
+        if (id == loginId) {
             this.setState({
                 isSnackbarOpen: true,
                 snackbarMsg: ' Sorry you can not delete login user !',
                 snackbarType: 'error'
-            },() => {setTimeout(()=> {
-                this.setState(()=> ( {
+            }, () => {
+                setTimeout(() => {
+                    this.setState(() => ({
                         isSnackbarOpen: false,
-                        snackbarMsg: "",}
-                ))
-            }, 5000);
+                        snackbarMsg: "",
+                    }
+                    ))
+                }, 5000);
             })
         }
-        else
-        {
+        else {
             this.props.dispatch(userActions.delete(id));
             this.setState({
                 isSnackbarOpen: true,
-                snackbarMsg: 'ID No-' + id + ' ' +' Record Deleted',
+                snackbarMsg: 'ID No-' + id + ' ' + ' Record Deleted',
                 snackbarType: 'success'
-            },() => {setTimeout(()=> {
-                this.setState(()=> ( {
+            }, () => {
+                setTimeout(() => {
+                    this.setState(() => ({
                         isSnackbarOpen: false,
-                        snackbarMsg: "",}
-                ))
-            }, 5000);
+                        snackbarMsg: "",
+                    }
+                    ))
+                }, 5000);
             })
         }
-      
+
     }
 
     ActionFormatter = (cell, row, rowIndex, formatExtraData) => {
@@ -88,20 +92,20 @@ class HomePage extends React.Component {
             </div>
         );
     }
-     onChangeActiveHeader = (ActiveHeader)=> {
-        
+    onChangeActiveHeader = (ActiveHeader) => {
+
         this.setState({
             ActiveHeader
         })
-     }
+    }
 
     render() {
-     
-        const {  users } = this.props;
-        const {ActiveHeader} = this.state;
 
-        
-         const user =   _.find(users && users.items, { 'id':this.props.user && this.props.user._id, });
+        const { users } = this.props;
+        const { ActiveHeader } = this.state;
+
+
+        const user = _.find(users && users.items, { 'id': this.props.user && this.props.user._id, });
         const columns = users && users.items && [
             //     {
             //     dataField: 'id',
@@ -177,72 +181,75 @@ class HomePage extends React.Component {
             showTotal: true,
             paginationTotalRenderer: customTotal,
             sizePerPageList: [{
-              text: '5', value: 5
+                text: '5', value: 5
             }, {
-              text: '10', value: 10
+                text: '10', value: 10
             }, {
-              text: 'All', value: users && users.items && users.items.length
+                text: 'All', value: users && users.items && users.items.length
             }] // A numeric array is also available. the purpose of above example is custom the text
-          };
-          const customTotal = (from, to, size) => (
+        };
+        const customTotal = (from, to, size) => (
             <span className="react-bootstrap-table-pagination-total">
-              Showing { from } to { to } of { size } Results
+                Showing {from} to {to} of {size} Results
             </span>
-          );
-        const CaptionElement = () => <h3 className="boostrap-home-title"> Hi... <p className="userName-title"> {user.firstName + ' ' +user.lastName }</p> Welcome To React Project</h3>;
+        );
+        const CaptionElement = () => <h3 className="boostrap-home-title"> Hi... <p className="userName-title"> {user.firstName + ' ' + user.lastName}</p> Welcome To React Project</h3>;
         // const rowStyle = { backgroundColor: '#c8e6c9' };
 
         return (
             <div>
-                <Header activeTab={ActiveHeader}  isLogin={true} user={user} onChangeActiveHeader={this.onChangeActiveHeader} />
+                <Header activeTab={ActiveHeader} isLogin={true} user={user} onChangeActiveHeader={this.onChangeActiveHeader} />
                 <div>
 
-                 { ActiveHeader == 'userProfile' ?
-                    <Row className="justify-content-md-center">
-                        <UserProfileView user={user}/>
-                    </Row>
-                 :
-                    
-                    <Row className="justify-content-md-center">
-                    
-                        <Col md={1} />
-                        <Col md={10} className="m-page-footer">
-                        {/* <h1>Hi {user && user.firstName}!</h1> */}
-                            {users && users.items &&
-                                <BootstrapTable
-                                    keyField='id'
-                                    // remote
-                                    data={user && users.items}
-                                    columns={columns}
-                                    striped
-                                    hover
-                                    condensed
-                                    bordered={false}
-                                    noDataIndication="Sorry No Records Found..."
-                                    pagination={paginationFactory(options)}
-                                    filter={filterFactory()}
-                                    caption={<CaptionElement />}
-                                // headerClasses="boostrap-header-class"
-                                // rowStyle={ rowStyle }
-                                />
+                    {ActiveHeader == 'userProfile' ?
+                        <Fade bottom collapse >
+                            <Row className="justify-content-md-center">
+                                <UserProfileView user={user} />
+                            </Row>
+                        </Fade>
+                        :
+                        <Fade bottom collapse >
+                            <Row className="justify-content-md-center">
 
-                            }
-                        </Col>
-                        <Col md={1} />
-                        <Col md={12}>
-                            <CustomizedSnackbars
-                            isSnackbarOpen={this.state.isSnackbarOpen}
-                            snackbarMsg={this.state.snackbarMsg}
-                            handleSnackbarClose={this.handleSnackbarClose}
-                            verticalAlign="top"
-                            horizontalAlign="right"
-                            snackbarType={this.state.snackbarType}
-                            isIconButtonCloseDisplay={true}
-                        />
-                        </Col>
-                    </Row>
-                 }
-                   
+                                <Col md={1} />
+                                <Col md={10} className="m-page-footer">
+                                    {/* <h1>Hi {user && user.firstName}!</h1> */}
+                                    {users && users.items &&
+                                        <BootstrapTable
+                                            keyField='id'
+                                            // remote
+                                            data={user && users.items}
+                                            columns={columns}
+                                            striped
+                                            hover
+                                            condensed
+                                            bordered={false}
+                                            noDataIndication="Sorry No Records Found..."
+                                            pagination={paginationFactory(options)}
+                                            filter={filterFactory()}
+                                            caption={<CaptionElement />}
+                                        // headerClasses="boostrap-header-class"
+                                        // rowStyle={ rowStyle }
+                                        />
+
+                                    }
+                                </Col>
+                                <Col md={1} />
+                                <Col md={12}>
+                                    <CustomizedSnackbars
+                                        isSnackbarOpen={this.state.isSnackbarOpen}
+                                        snackbarMsg={this.state.snackbarMsg}
+                                        handleSnackbarClose={this.handleSnackbarClose}
+                                        verticalAlign="top"
+                                        horizontalAlign="right"
+                                        snackbarType={this.state.snackbarType}
+                                        isIconButtonCloseDisplay={true}
+                                    />
+                                </Col>
+                            </Row>
+                        </Fade>
+                    }
+
                 </div>
             </div>
         );

@@ -13,6 +13,7 @@ import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css';
 import CustomizedSnackbars from './../_components/pages/CustomizedSnackbars';
 import moment from 'moment';
+import Fade from 'react-reveal/Fade';
 registerPlugin(FilePondPluginImagePreview);
 
 class RegisterPage extends React.Component {
@@ -218,43 +219,51 @@ class RegisterPage extends React.Component {
                                             <div className={'form-group' + (submitted && !user.firstName ? ' has-error' : '')}>
                                                 <label htmlFor="firstName">First Name</label>
                                                 <input type="text" className="form-control" name="firstName" value={user.firstName} onChange={this.handleChange} />
-                                                {submitted && !user.firstName &&
+                                                <Fade bottom collapse when={submitted && !user.firstName}>
                                                     <div className="help-block">First Name is required</div>
-                                                }
+                                                </Fade>
                                             </div>
                                         </Col>
                                         <Col md={6}>
                                             <div className={'form-group' + (submitted && !user.lastName ? ' has-error' : '')}>
                                                 <label htmlFor="lastName">Last Name</label>
                                                 <input type="text" className="form-control" name="lastName" value={user.lastName} onChange={this.handleChange} />
-                                                {submitted && !user.lastName &&
+                                                <Fade bottom collapse when={submitted && !user.lastName}>
                                                     <div className="help-block">Last Name is required</div>
-                                                }
+                                                </Fade>
                                             </div>
                                         </Col>
                                         <Col md={6}>
                                             <div className={'form-group' + (submitted && !user.username ? ' has-error' : '')}>
                                                 <label htmlFor="username">Username</label>
                                                 <input type="text" className="form-control" name="username" value={user.username} onChange={this.handleChange} />
-                                                {submitted && !user.username &&
+                                                <Fade bottom collapse when={submitted && !user.username}>
                                                     <div className="help-block">Username is required</div>
-                                                }
+                                                </Fade>
                                             </div>
                                         </Col>
                                         <Col md={6}>
                                             <div className={'form-group' + (submitted && !user.password ? ' has-error' : '')}>
                                                 <label htmlFor="password">Password</label>
                                                 <input type="password" className="form-control" name="password" value={user.password} onChange={this.handleChange} />
-                                                {submitted && !user.password &&
+                                                <Fade bottom collapse when={submitted && !user.password}>
                                                     <div className="help-block">Password is required</div>
-                                                }
+                                                </Fade>
                                             </div>
                                         </Col>
                                         <Col md={6}>
                                             <div className={'form-group' + (submitted && !user.c_password ? ' has-error' : submitted && !isMathPassword && ' has-error')}>
                                                 <label htmlFor="c_password">Confirm Password</label>
                                                 <input type="password" className="form-control" name="c_password" value={user.c_password} onChange={this.handleChange} />
-                                                {submitted && !user.c_password ? <div className="help-block"> {c_password_err}</div> : submitted && !isMathPassword && <div className="help-block">{c_password_err}</div>}
+                                                {submitted && !user.c_password ?  
+                                                 <Fade bottom collapse when={submitted && !user.c_password}>
+                                                    <div className="help-block">{c_password_err}</div>
+                                                </Fade>
+                                                 :  
+                                                <Fade bottom collapse when={submitted && !isMathPassword}>
+                                                    <div className="help-block">{c_password_err}</div>
+                                                </Fade>
+                                                }
                                             </div>
                                         </Col>
                                         <Col md={6}>
@@ -265,9 +274,10 @@ class RegisterPage extends React.Component {
                                                     className="form-control"
                                                     name="country"
                                                     onChange={(val) => this.selectCountry(val)} />
-                                                {submitted && !user.country &&
+                                               
+                                                 <Fade bottom collapse when={submitted && !user.country}>
                                                     <div className="help-block">Country is required</div>
-                                                }
+                                                </Fade>
                                             </div>
                                         </Col>
                                         <Col md={6}>
@@ -279,9 +289,9 @@ class RegisterPage extends React.Component {
                                                     className="form-control"
                                                     name="region"
                                                     onChange={(val) => this.selectRegion(val)} />
-                                                {submitted && !user.region &&
+                                                  <Fade bottom collapse when={submitted && !user.region}>
                                                     <div className="help-block">Region is required</div>
-                                                }
+                                                </Fade>
                                             </div>
                                         </Col>
 
@@ -295,9 +305,10 @@ class RegisterPage extends React.Component {
                                                     value={user.bod ? new Date(user.bod) : ''}
 
                                                 />
-                                                {submitted && !user.bod &&
+
+                                                 <Fade bottom collapse when={submitted && !user.bod}>
                                                     <div className="help-block">Birthdate is required</div>
-                                                }
+                                                </Fade>
                                             </div>
                                         </Col>
 

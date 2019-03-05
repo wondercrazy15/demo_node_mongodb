@@ -5,13 +5,13 @@ import { userActions } from '../_actions';
 import Header from './../_components/pages/header';
 import Footer from './../_components/pages/footer';
 import CustomizedSnackbars from './../_components/pages/CustomizedSnackbars';
+import Fade from 'react-reveal/Fade';
 class LoginPage extends React.Component {
     constructor(props) {
         super(props);
 
         // reset login status
         this.props.dispatch(userActions.logout());
-
         this.state = {
             username: '',
             password: '',
@@ -20,7 +20,6 @@ class LoginPage extends React.Component {
             snackbarMsg: '',
             snackbarType: ''
         };
-
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -35,11 +34,11 @@ class LoginPage extends React.Component {
             isSnackbarOpen: false
         })
     }
-    
+
 
     handleSubmit(e) {
         e.preventDefault();
-       
+
         this.setState({ submitted: true });
         const { username, password } = this.state;
         const { dispatch } = this.props;
@@ -85,16 +84,17 @@ class LoginPage extends React.Component {
                         <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
                             <label htmlFor="username">Username</label>
                             <input type="text" className="form-control" name="username" value={username} onChange={this.handleChange} />
-                            {submitted && !username &&
+
+                            <Fade bottom collapse when={submitted && !username}>
                                 <div className="help-block">Username is required</div>
-                            }
+                            </Fade>
                         </div>
                         <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
                             <label htmlFor="password">Password</label>
                             <input type="password" className="form-control" name="password" value={password} onChange={this.handleChange} />
-                            {submitted && !password &&
+                            <Fade bottom collapse when={submitted && !password}>
                                 <div className="help-block">Password is required</div>
-                            }
+                            </Fade>
                         </div>
                         <div className="form-group">
                             <button className="btn btn-primary">

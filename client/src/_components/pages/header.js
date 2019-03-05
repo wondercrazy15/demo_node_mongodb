@@ -7,6 +7,8 @@ import CustomizedSnackbars from './CustomizedSnackbars';
 import BoostrapModal from './modal';
 import { userActions } from '../../_actions';
 import { connect } from 'react-redux';
+import Clock from 'react-live-clock';
+
 class Header extends React.Component {
     constructor(props) {
         super(props);
@@ -135,9 +137,9 @@ class Header extends React.Component {
                 {!validOldPassword ?
                     <Row>
                         <Col md={12}>
-                            <div className={'form-group' + (submitted && user && !user.password ? ' has-error' : '')}>
+                            <div className={'form-group' + (submitted &&  !user.password ? ' has-error' : '')}>
                                 <label htmlFor="password">Password</label>
-                                <input type="password" className="form-control" name="password" value={user && user.password} onChange={this.handleChange} />
+                                <input type="password" className="form-control" name="password" value={user && user.password} onChange={this.handleChange}  />
                                 {submitted && !user.password &&
                                     <div className="help-block">Password is required</div>
                                 }
@@ -238,6 +240,9 @@ class Header extends React.Component {
                                         <div className="dropdown-divider"></div>
                                         <div ><Link to="/login" ><span className="glyphicon glyphicon-off"></span> Logout </Link></div>
                                     </div>
+                                </li>
+                                <li className="header-clock">
+                                <Clock format={'h:mm:ssa'} ticking={true} />
                                 </li>
 
                                 {/* <li><a onClick={this.onUserProfileActive} > {fullName}</a></li> */}
